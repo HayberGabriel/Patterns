@@ -1,6 +1,5 @@
 import 'package:fordev/domain/entities/account_entity.dart';
 
-
 import 'package:equatable/equatable.dart';
 
 abstract class Authentication {
@@ -13,5 +12,5 @@ class AuthenticationParams extends Equatable {
 
   List get props => [email, secret];
 
-  AuthenticationParams({ required this.email, required this.secret });
+  AuthenticationParams({required this.email, required this.secret});
 }
