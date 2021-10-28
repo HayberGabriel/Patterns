@@ -1,3 +1,6 @@
-enum DomainError{
-  unexpected, invalidCredencials
+enum DomainError {
+  unexpected,
+  invalidCredentials,
+  emailInUse,
+  accessDenied
 }

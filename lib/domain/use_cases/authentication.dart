@@ -1,15 +1,17 @@
-import 'package:flutter/cupertino.dart';
-import 'package:patterns/domain/entities/account_entity.dart';
+import 'package:fordev/domain/entities/account_entity.dart';
+
+
+import 'package:equatable/equatable.dart';
 
 abstract class Authentication {
   Future<AccountEntity> auth(AuthenticationParams params);
 }
 
-class AuthenticationParams {
+class AuthenticationParams extends Equatable {
   final String email;
   final String secret;
 
-  AuthenticationParams({required this.email, required this.secret});
+  List get props => [email, secret];
 
-  Map toJson() => {'email': email, 'password': secret};
+  AuthenticationParams({ required this.email, required this.secret });
 }
