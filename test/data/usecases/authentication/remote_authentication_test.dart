@@ -61,13 +61,13 @@ void main() {
   });
 
   test('Should throw InvalidCredentialsError if HttpClient returns 401',
-      () async {
-    httpClient.mockRequestError(HttpError.unauthorized);
+          () async {
+        httpClient.mockRequestError(HttpError.unauthorized);
 
-    final future = sut.auth(params);
+        final future = sut.auth(params);
 
-    expect(future, throwsA(DomainError.invalidCredentials));
-  });
+        expect(future, throwsA(DomainError.invalidCredentials));
+      });
 
   test('Should return an Account if HttpClient returns 200', () async {
     final account = await sut.auth(params);
@@ -77,11 +77,11 @@ void main() {
 
   test(
       'Should throw UnexpectedError if HttpClient returns 200 with invalid data',
-      () async {
-    httpClient.mockRequest({'invalid_key': 'invalid_value'});
+          () async {
+        httpClient.mockRequest({'invalid_key': 'invalid_value'});
 
-    final future = sut.auth(params);
+        final future = sut.auth(params);
 
-    expect(future, throwsA(DomainError.unexpected));
-  });
+        expect(future, throwsA(DomainError.unexpected));
+      });
 }
